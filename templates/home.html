@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{# static 'static' as url #}
+
+{% block content %}
+
+{% for d in data %}
+<div class="card" style="width: 18rem;">
+    <img src="http://127.0.0.1:8000/media/{{d.photo}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{d.name}}</h5>
+      <p class="card-text">{{d.email}} {{d.DOB}}</p>
+      {% if d.age < 21 %}
+      <a href="payal/?name={{d.name}}" class="btn btn-primary">Go somewhere</a>
+      {% elif d.button < 25 %}
+      <a href="payal/?name={{d.name}}" class="btn btn-primary">Go Anywhere</a>
+      {% else %}
+      <a href="payal/?name={{d.name}}" class="btn btn-primary">Go</a>
+      {% endif %}
+    </div>
+  </div>
+{% endfor %}
+  
+
+{% endblock %}
